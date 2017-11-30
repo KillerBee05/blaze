@@ -1,0 +1,15 @@
+h1 {
+  color: #000;
+}
+* {
+margin-top: 0.5em;
+margin-left: 10px;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container {
+  width: 100%;
+}

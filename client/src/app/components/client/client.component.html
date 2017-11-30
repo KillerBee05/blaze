@@ -1,0 +1,40 @@
+<h1>Client Information</h1>
+<h2> Add Client </h2>
+<div class ="container">
+<form (submit)="addClient()" class="example-form" class="flex-container">
+  <div class="form-group">
+    <md-form-field class="example-container" >
+      <input mdInput placeholder="First Name" [(ngModel)]="first_name" name="first_name">
+    </md-form-field>
+  </div>
+  <div  fxFlex="5%" >  </div>
+  <div class="form-group">
+    <md-form-field class="example-container">
+      <input mdInput placeholder="Last Name" [(ngModel)]="last_name" name="last_name">
+    </md-form-field>
+  </div>
+  <div  fxFlex="5%" >  </div>
+
+  <div class="form-group">
+    <md-form-field class="example-container">
+      <input mdInput placeholder="Phone Number" [(ngModel)]="phone" name="phone">
+    </md-form-field>
+  </div>
+  <button type="submit" md-icon-button >
+    <md-icon>add</md-icon>
+  </button>
+</form>
+
+</div>
+<hr>
+
+<div class ="container">
+  <div *ngFor = "let client of clients">
+    <div class="example-container">
+      {{client.first_name}} {{client.last_name}} {{client.phone}}
+      <button type="button" md-icon-button (click)="deleteClient(client._id)" value = "Delete">
+        <md-icon>delete</md-icon>
+      </button>
+    </div>
+  </div>
+</div>
