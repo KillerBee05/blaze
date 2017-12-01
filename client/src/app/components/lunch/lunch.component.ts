@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lunch',
-  styleUrls: ['../../styles/lunch.component.css'],
+  styleUrls: ['./lunch.component.css'],
   templateUrl: './lunch.component.html',
 })
 export class LunchComponent implements OnInit {

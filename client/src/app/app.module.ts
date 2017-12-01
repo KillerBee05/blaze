@@ -25,27 +25,22 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatTableModule} from '@angular/material/table';
 
 // Services
-import { HeroService } from './services/hero.service';
 import { ClientService } from './services/client.service';
 
 
 // Components
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppComponent } from './components/app/app.component';
-import { HeroDetailComponent } from './components/hero-details/hero-detail.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
 import { LunchComponent } from './components/lunch/lunch.component';
 import { ClientComponent } from './components/client/client.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   // Put components here!
   declarations: [
     AppComponent,
-    HeroDetailComponent,
-    HeroesComponent,
-    DashboardComponent,
     LunchComponent,
-    ClientComponent
+    ClientComponent,
+    UserComponent
   ],
   // Module Imports here
   imports: [
@@ -72,7 +67,6 @@ import { ClientComponent } from './components/client/client.component';
   ],
   // Add Services here
   providers: [
-    HeroService,
     ClientService
   ],
   bootstrap: [AppComponent]
