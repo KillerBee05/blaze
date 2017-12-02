@@ -10,17 +10,17 @@ import { RouterModule }   from '@angular/router';
 
 // Material Modules
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
-import {MdDatepickerModule} from '@angular/material';
-import {MdInputModule} from '@angular/material';
-import {MdMenuModule} from '@angular/material';
-import {MdToolbarModule} from '@angular/material';
-import {MdSidenavModule} from '@angular/material';
-import {MdButtonToggleModule} from '@angular/material';
-import {MdListModule} from '@angular/material';
-import {MdIconModule} from '@angular/material';
-import {MdCardModule} from '@angular/material';
-import {MdGridListModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material';
+import {MatSidenavModule} from '@angular/material';
+import {MatButtonToggleModule} from '@angular/material';
+import {MatListModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
+import {MatCardModule} from '@angular/material';
+import {MatGridListModule} from '@angular/material';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatTableModule} from '@angular/material/table';
 
@@ -47,19 +47,19 @@ import { UserComponent } from './components/user/user.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    MdButtonModule,
-    MdCheckboxModule,
+    MatButtonModule,
+    MatCheckboxModule,
     BrowserAnimationsModule,
-    MdDatepickerModule,
-    MdInputModule,
-    MdMenuModule,
-    MdToolbarModule,
-    MdSidenavModule,
-    MdButtonToggleModule,
-    MdListModule,
-    MdIconModule,
-    MdCardModule,
-    MdGridListModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonToggleModule,
+    MatListModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
     FlexLayoutModule,
     HttpModule,
     MatTableModule

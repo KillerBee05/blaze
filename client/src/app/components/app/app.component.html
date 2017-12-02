@@ -1,44 +1,44 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<md-sidenav-container class="example-container" fullscreen>
-<md-toolbar color="primary">
-  <button type="button" md-icon-button (click)="sidenav.open()">
-    <md-icon>menu</md-icon>
+<mat-sidenav-container class="example-container" fullscreen>
+<mat-toolbar color="primary">
+  <button type="button" mat-icon-button (click)="sidenav.open()">
+    <mat-icon>menu</mat-icon>
   </button>
   <span> Iron Man </span>
   <span class="drop-down-menu"></span>
   <span>
-    <button md-icon-button [mdMenuTriggerFor]="menu">
-    <md-icon>more_vert</md-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
     </button>
   </span>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item>
-      <md-icon>dialpad</md-icon>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
       <span>Redial</span>
     </button>
-    <button md-menu-item disabled>
-      <md-icon>voicemail</md-icon>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
       <span>Check voicemail</span>
     </button>
-    <button md-menu-item>
-      <md-icon>notifications_off</md-icon>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
       <span>Disable alerts</span>
     </button>
-  </md-menu>
-</md-toolbar>
+  </mat-menu>
+</mat-toolbar>
 
-  <md-sidenav #sidenav class="example-sidenav">
-    <h3 md-subheader>Iron Man</h3>
-    <md-list>
-      <md-list-item><md-icon>event</md-icon><a routerLink="/lunch" md-button> Lunch </a></md-list-item>
-      <md-divider></md-divider>
-      <md-list-item><md-icon>event</md-icon><a routerLink="/client" md-button> Client </a></md-list-item>
-      <md-divider></md-divider>
-      <md-list-item><md-icon>event</md-icon><a routerLink="/user" md-button> User </a></md-list-item>
-    </md-list>
-  </md-sidenav>
+  <mat-sidenav #sidenav class="example-sidenav">
+    <h3 mat-subheader>Blaze</h3>
+    <mat-list>
+      <mat-list-item><mat-icon>event</mat-icon><a routerLink="/lunch" mat-button> Lunch </a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><mat-icon>event</mat-icon><a routerLink="/client" mat-button> Client </a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><mat-icon>event</mat-icon><a routerLink="/user" mat-button> User </a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
 
 <router-outlet></router-outlet>
 
 
-</md-sidenav-container>
+</mat-sidenav-container>

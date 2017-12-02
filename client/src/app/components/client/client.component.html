@@ -3,25 +3,25 @@
 <div class ="container">
 <form (submit)="addClient()" class="example-form" class="flex-container">
   <div class="form-group">
-    <md-form-field class="example-container" >
-      <input mdInput placeholder="First Name" [(ngModel)]="first_name" name="first_name">
-    </md-form-field>
+    <mat-form-field class="example-container" >
+      <input matInput placeholder="First Name" [(ngModel)]="first_name" name="first_name">
+    </mat-form-field>
   </div>
   <div  fxFlex="5%" >  </div>
   <div class="form-group">
-    <md-form-field class="example-container">
-      <input mdInput placeholder="Last Name" [(ngModel)]="last_name" name="last_name">
-    </md-form-field>
+    <mat-form-field class="example-container">
+      <input matInput placeholder="Last Name" [(ngModel)]="last_name" name="last_name">
+    </mat-form-field>
   </div>
   <div  fxFlex="5%" >  </div>
 
   <div class="form-group">
-    <md-form-field class="example-container">
-      <input mdInput placeholder="Phone Number" [(ngModel)]="phone" name="phone">
-    </md-form-field>
+    <mat-form-field class="example-container">
+      <input matInput placeholder="Phone Number" [(ngModel)]="phone" name="phone">
+    </mat-form-field>
   </div>
-  <button type="submit" md-icon-button >
-    <md-icon>add</md-icon>
+  <button type="submit" mat-icon-button >
+    <mat-icon>add</mat-icon>
   </button>
 </form>
 
@@ -32,8 +32,8 @@
   <div *ngFor = "let client of clients">
     <div class="example-container">
       {{client.first_name}} {{client.last_name}} {{client.phone}}
-      <button type="button" md-icon-button (click)="deleteClient(client._id)" value = "Delete">
-        <md-icon>delete</md-icon>
+      <button type="button" mat-icon-button (click)="deleteClient(client._id)" value = "Delete">
+        <mat-icon>delete</mat-icon>
       </button>
     </div>
   </div>
