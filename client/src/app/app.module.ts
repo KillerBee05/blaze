@@ -25,7 +25,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatTableModule} from '@angular/material/table';
 
 // Services
-import { ClientService } from './services/client.service';
+import { ClientService } from './services/client/client.service';
 
 
 // Components
