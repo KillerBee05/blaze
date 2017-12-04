@@ -41,5 +41,22 @@ router.delete('/client/:id', (req, res, next)=>{
 });
 
 //Update Data
+router.put('/client/:id', (req, res, next)=>{
+  Client.update({_id: req.params.id}, {
+    $set:{
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      phone: req.body.phone
+    }
+  },
+  function(err, result){
+    if(err){
+      res.json(err);
+    }
+    else{
+      res.json(result);
+    }
+  });
+});
 
 module.exports = router;

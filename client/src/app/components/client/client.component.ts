@@ -29,6 +29,19 @@ export class ClientComponent implements OnInit {
       });
   }
 
+  updateClient(client){
+    const updateClient: Client ={
+      _id: client._id,
+      first_name: client.first_name,
+      last_name: client.last_name,
+      phone: client.phone
+    }
+    this.clientService.updateClient(updateClient)
+    .subscribe(result =>{
+      this.clientService.getClient();
+    });
+  }
+
   deleteClient(id:any){
     var clients = this.clients;
     this.clientService.deleteClient(id)

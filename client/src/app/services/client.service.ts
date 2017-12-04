@@ -24,6 +24,14 @@ export class ClientService {
       .map(res => res.json());
   }
 
+  //update
+  updateClient(newClient){
+  var headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+    return this.http.put('http://localhost:3000/api/client/'+newClient._id, newClient, {headers:headers})
+      .map(res => res.json());
+  }
+
   //delete
   deleteClient(id){
     return this.http.delete('http://localhost:3000/api/client/'+id)

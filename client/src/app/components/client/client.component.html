@@ -20,21 +20,45 @@
       <input matInput placeholder="Phone Number" [(ngModel)]="phone" name="phone">
     </mat-form-field>
   </div>
-  <button type="submit" mat-icon-button >
+  <button type="submit" onClick="window.location.reload()"  mat-icon-button >
     <mat-icon>add</mat-icon>
   </button>
 </form>
 
 </div>
 <hr>
-
+<h2> Client Records </h2>
 <div class ="container">
   <div *ngFor = "let client of clients">
-    <div class="example-container">
-      {{client.first_name}} {{client.last_name}} {{client.phone}}
-      <button type="button" mat-icon-button (click)="deleteClient(client._id)" value = "Delete">
+    <div class ="container">
+    <form #updateForm="ngForm" (submit)="updateClient()" class="example-form" class="flex-container">
+      <div class="form-group">
+        <mat-form-field class="example-container">
+          <input matInput name="first_name" [(ngModel)]="client.first_name" value="">
+        </mat-form-field>
+      </div>
+      <div  fxFlex="5%" >  </div>
+      <div class="form-group">
+        <mat-form-field class="example-container">
+          <input matInput name="last_name" [(ngModel)]="client.last_name" value="">
+        </mat-form-field>
+      </div>
+      <div  fxFlex="5%" >  </div>
+
+      <div class="form-group">
+        <mat-form-field class="example-container">
+          <input matInput name="phone" [(ngModel)]="client.phone" value="">
+        </mat-form-field>
+      </div>
+      <button type="button" mat-icon-button (click)="updateClient(client)" onClick="window.location.reload()" value="Update">
+        <mat-icon>update</mat-icon>
+      </button>
+
+      <button type="button" mat-icon-button (click)="deleteClient(client._id)" value="Delete">
         <mat-icon>delete</mat-icon>
       </button>
+    </form>
+
     </div>
   </div>
 </div>
