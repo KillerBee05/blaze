@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const database = require('../../database/config');
 const User = require('../../models/user/user');
 
 //Retrieve data
@@ -20,29 +22,51 @@ router.post('/user', (req, res, next)=>{
     password:req.body.password
   });
 
-  newUser.save((err, user)=>{
+  User.addUser(newUser, (err, user) => {
     if(err){
-      res.json({msg: 'Failed to save User Data'});
+      res.json({success: false, msg: 'Failed to save User Data'});
     }
     else{
-      res.json({msg: 'User Data saved'});
+      res.json({success: true, msg: 'User Data saved'});
     }
   });
 });
 
 
 //Auth user
-router.post('/authenticate', (req, res, next)=>{
+router.post('/authenticate', (req, res, next) => {
     const user_name = req.body.user_name;
     const password = req.body.password;
 
   User.getUserByUsername(user_name, (err, user)=>{
-    if(err){
-      res.json({msg: 'Failed Authenticate User'});
-    }
+    if(err) throw err;
     if(!user){
-      return res.json({success: false, msg: 'User not found'})
+      return res.json({success: false, msg: 'User not found'});
     }
+
+    User.comparePassword(password, user.password, (err, isMatch) => {
+      if(err) throw err;
+      if(isMatch){
+        const token = jwt.sign(user.toJSON(), database.secret, {
+          expiresIn: 604800 // 1 week
+        });
+
+        res.json({
+          success: true,
+          token: 'JWT '+token,
+          user: {
+            id: user._id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.email,
+            user_name: user.user_name
+          }
+        });
+      }
+      else {
+            return res.json({success: false, msg: 'Wrong password'});
+      }
+    });
   });
 });
 

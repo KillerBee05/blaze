@@ -4,6 +4,9 @@ var mongoose = require('mongoose');
 var bodyparser = require ('body-parser');
 var cors = require('cors');
 var path = require ('path');
+var passport = require('passport');
+var bcrypt = require('bcryptjs');
+var database = require('./database/config');
 
 var app = express();
 
@@ -11,7 +14,7 @@ const client = require('./routes/routes');
 const user = require('./routes/user/user');
 
 //Connect to MongoDb
-mongoose.connect('mongodb://localhost:27017/client');
+mongoose.connect(database.database);
 
 //On Connection
 mongoose.connection.on('connected',()=>{
@@ -31,6 +34,12 @@ app.use(cors());
 
 //body parser
 app.use(bodyparser.json());
+
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./auth/auth')(passport);
 
 //static files
 app.use(express.static(path.join(__dirname, 'public')));
