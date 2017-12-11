@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
-import {Client} from '../../models/client';
+import {Client} from '../../models/client/client';
 import 'rxjs/add/operator/map';
 
 
@@ -14,7 +14,6 @@ export class ClientService {
     return this.http.get('http://localhost:3000/api/client')
     .map(res => res.json());
   }
-  //Left off on 56:24 youtube.com/watch?v=wtIvu085uU0&t=2622s
 
   //add Client
   addClient(newClient){

@@ -7,7 +7,8 @@ var path = require ('path');
 
 var app = express();
 
-const route = require('./routes/routes');
+const client = require('./routes/routes');
+const user = require('./routes/user/user');
 
 //Connect to MongoDb
 mongoose.connect('mongodb://localhost:27017/client');
@@ -35,11 +36,12 @@ app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Routes
-app.use('/api', route);
+app.use('/api', client);
+app.use('/api', user);
 
 //testing
 app.get('/', (req, res, )=>{
-  res.send('Client Information');
+  res.send('Here We Go');
 });
 
 app.listen(port,()=>{

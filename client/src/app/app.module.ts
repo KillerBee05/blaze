@@ -23,9 +23,11 @@ import {MatCardModule} from '@angular/material';
 import {MatGridListModule} from '@angular/material';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 // Services
 import { ClientService } from './services/client/client.service';
+import { RegisterService } from './services/register/register.service';
 
 
 // Components
@@ -33,6 +35,8 @@ import { AppComponent } from './components/app/app.component';
 import { LunchComponent } from './components/lunch/lunch.component';
 import { ClientComponent } from './components/client/client.component';
 import { UserComponent } from './components/user/user.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   // Put components here!
@@ -40,7 +44,9 @@ import { UserComponent } from './components/user/user.component';
     AppComponent,
     LunchComponent,
     ClientComponent,
-    UserComponent
+    UserComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   // Module Imports here
   imports: [
@@ -62,12 +68,14 @@ import { UserComponent } from './components/user/user.component';
     MatGridListModule,
     FlexLayoutModule,
     HttpModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
 
   ],
   // Add Services here
   providers: [
-    ClientService
+    ClientService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })
