@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 // Routing Modules
-import { AppRoutingModule }     from './routes/app-routing.module';
-import { RouterModule }   from '@angular/router';
+import { AppRoutingModule } from './routes/app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
 
 // Material Modules
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

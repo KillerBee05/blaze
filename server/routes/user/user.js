@@ -31,4 +31,19 @@ router.post('/user', (req, res, next)=>{
 });
 
 
+//Auth user
+router.post('/authenticate', (req, res, next)=>{
+    const user_name = req.body.user_name;
+    const password = req.body.password;
+
+  User.getUserByUsername(user_name, (err, user)=>{
+    if(err){
+      res.json({msg: 'Failed Authenticate User'});
+    }
+    if(!user){
+      return res.json({success: false, msg: 'User not found'})
+    }
+  });
+});
+
 module.exports = router;

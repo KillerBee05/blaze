@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/register/register.service';
 import {User} from '../../models/user/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'register',
@@ -18,7 +19,10 @@ export class RegisterComponent implements OnInit {
   password: string;
 
 
-  constructor(private registerService: RegisterService) { }
+  constructor(
+    private registerService: RegisterService,
+    private router: Router
+  ) { }
   addUser(){
     const newUser ={
       first_name: this.first_name,
@@ -29,7 +33,14 @@ export class RegisterComponent implements OnInit {
     }
     this.registerService.addUser(newUser)
       .subscribe(user =>{
-        this.users.push(user);
+        if(user){
+          this.router.navigate(['/login']);
+          this.users.push(user);
+
+        }
+        else{
+          console.log("WE have an error");
+        }
       });
   }
 
