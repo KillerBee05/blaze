@@ -3,6 +3,7 @@ import {RegisterService} from '../../services/register/register.service';
 import {User} from '../../models/user/user';
 import {Router} from '@angular/router';
 import {ValidationService} from '../../services/validation/validation.service';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'register',
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     private validationService: ValidationService,
-    private router: Router
+    private router: Router,
+    private flashMessage: FlashMessagesService
   ) { }
 
   addUser(){
@@ -35,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
     //Required Fields
     if(!this.validationService.validateRegister(newUser)){
-      console.log('Please fill in all fields');
+      this.flashMessage.show('poop', { cssClass: 'alert-success', timeout: 1000 });
       return false;
     }
 

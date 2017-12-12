@@ -30,35 +30,30 @@
 <h2> Client Records </h2>
 <div class ="container">
   <div *ngFor = "let client of clients">
-    <div class ="container">
-    <form #updateForm="ngForm" (submit)="updateClient()" class="example-form" class="flex-container">
-      <div class="form-group">
-        <mat-form-field class="example-container">
-          <input matInput name="first_name" [(ngModel)]="client.first_name" value="">
-        </mat-form-field>
-      </div>
-      <div  fxFlex="5%" >  </div>
-      <div class="form-group">
-        <mat-form-field class="example-container">
-          <input matInput name="last_name" [(ngModel)]="client.last_name" value="">
-        </mat-form-field>
-      </div>
-      <div  fxFlex="5%" >  </div>
+    <div class ="container" class="flex-container">
+      <form #updateForm="ngForm" (submit)="updateClient()" class="example-form" class="flex-container">
 
-      <div class="form-group">
-        <mat-form-field class="example-container">
-          <input matInput name="phone" [(ngModel)]="client.phone" value="">
-        </mat-form-field>
-      </div>
-      <button type="button" mat-icon-button (click)="updateClient(client)" onClick="window.location.reload()" value="Update">
-        <mat-icon>update</mat-icon>
-      </button>
+          <mat-form-field>
+            <input matInput name="first_name" [(ngModel)]="client.first_name" value="">
+          </mat-form-field>
 
-      <button type="button" mat-icon-button (click)="deleteClient(client._id)" value="Delete">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </form>
+          <mat-form-field>
+            <input matInput name="last_name" [(ngModel)]="client.last_name" value="">
+          </mat-form-field>
 
+          <mat-form-field>
+            <input matInput name="phone" [(ngModel)]="client.phone" value="">
+          </mat-form-field>
+
+          <button type="button" mat-icon-button (click)="updateClient(client)" onClick="window.location.reload()" value="Update">
+            <mat-icon>update</mat-icon>
+          </button>
+
+          <button type="button" mat-icon-button (click)="deleteClient(client._id)" value="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+      </form>
     </div>
   </div>
 </div>
