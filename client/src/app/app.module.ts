@@ -73,7 +73,7 @@ import { LoginComponent } from './components/login/login.component';
     HttpModule,
     MatTableModule,
     MatDialogModule,
-    FlashMessagesModule
+    FlashMessagesModule.forRoot(),
   ],
   // Add Services here
   providers: [
