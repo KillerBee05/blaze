@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {User} from '../../models/user/user';
 import 'rxjs/add/operator/map';
+import {Client} from '../../models/client/client';
 
 
 @Injectable()
@@ -17,6 +18,21 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/api/authenticate', user,{headers:headers})
       .map(res => res.json());
+  }
+  // 
+  // getClient(){
+  //   debugger;
+  //   let headers = new Headers();
+  //   this.loadToken();
+  //   headers.append('Authorization', this.authToken);
+  //   headers.append('Content-Type', 'application/json');
+  //   return this.http.post('http://localhost:3000/api/client',{headers:headers})
+  //     .map(res => res.json());
+  // }
+
+  loadToken(){
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
   }
 
   storeUserData(token, user){

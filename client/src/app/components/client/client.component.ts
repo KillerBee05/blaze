@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from '../../services/client/client.service';
 import {Client} from '../../models/client/client';
+// import {AuthService} from '../../services/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'client',
   templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css'],
-  providers: [ClientService]
+  styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
   clients: Client[];
@@ -15,7 +16,23 @@ export class ClientComponent implements OnInit {
   last_name: string;
   phone: string;
 
-  constructor(private clientService: ClientService) { }
+  user:Object;
+
+  constructor(
+    private clientService: ClientService,
+    // private authService: AuthService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    // this.authService.getClient()
+    //   .subscribe(clients =>
+    //     this.clients = clients);
+
+    this.clientService.getClient()
+      .subscribe(clients =>
+      this.clients = clients);
+  }
 
   addClient(){
     const newClient ={
@@ -56,10 +73,6 @@ export class ClientComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
-    this.clientService.getClient()
-      .subscribe(clients =>
-      this.clients = clients);
-  }
+
 
 }

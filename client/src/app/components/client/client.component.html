@@ -1,59 +1,61 @@
-<h1>Client Information</h1>
-<h2> Add Client </h2>
-<div class ="container">
-<form (submit)="addClient()" class="example-form" class="flex-container">
-  <div class="form-group">
-    <mat-form-field class="example-container" >
-      <input matInput placeholder="First Name" [(ngModel)]="first_name" name="first_name">
-    </mat-form-field>
+<!-- <div *ngIf="user"> -->
+  <h1>Client Information</h1>
+  <h2> Add Client </h2>
+  <div class ="container">
+  <form (submit)="addClient()" class="example-form" class="flex-container">
+    <div class="form-group">
+      <mat-form-field class="example-container" >
+        <input matInput placeholder="First Name" [(ngModel)]="first_name" name="first_name">
+      </mat-form-field>
+    </div>
+    <div  fxFlex="5%" >  </div>
+    <div class="form-group">
+      <mat-form-field class="example-container">
+        <input matInput placeholder="Last Name" [(ngModel)]="last_name" name="last_name">
+      </mat-form-field>
+    </div>
+    <div  fxFlex="5%" >  </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-container">
+        <input matInput placeholder="Phone Number" [(ngModel)]="phone" name="phone">
+      </mat-form-field>
+    </div>
+    <button type="submit" onClick="window.location.reload()"  mat-icon-button >
+      <mat-icon>add</mat-icon>
+    </button>
+  </form>
+
   </div>
-  <div  fxFlex="5%" >  </div>
-  <div class="form-group">
-    <mat-form-field class="example-container">
-      <input matInput placeholder="Last Name" [(ngModel)]="last_name" name="last_name">
-    </mat-form-field>
-  </div>
-  <div  fxFlex="5%" >  </div>
+  <hr>
+  <h2> Client Records </h2>
+  <div class ="container">
+    <div *ngFor = "let client of clients">
+      <div class ="container" class="flex-container">
+        <form #updateForm="ngForm" (submit)="updateClient()" class="example-form" class="flex-container">
 
-  <div class="form-group">
-    <mat-form-field class="example-container">
-      <input matInput placeholder="Phone Number" [(ngModel)]="phone" name="phone">
-    </mat-form-field>
-  </div>
-  <button type="submit" onClick="window.location.reload()"  mat-icon-button >
-    <mat-icon>add</mat-icon>
-  </button>
-</form>
+            <mat-form-field>
+              <input matInput name="first_name" [(ngModel)]="client.first_name" value="">
+            </mat-form-field>
 
-</div>
-<hr>
-<h2> Client Records </h2>
-<div class ="container">
-  <div *ngFor = "let client of clients">
-    <div class ="container" class="flex-container">
-      <form #updateForm="ngForm" (submit)="updateClient()" class="example-form" class="flex-container">
+            <mat-form-field>
+              <input matInput name="last_name" [(ngModel)]="client.last_name" value="">
+            </mat-form-field>
 
-          <mat-form-field>
-            <input matInput name="first_name" [(ngModel)]="client.first_name" value="">
-          </mat-form-field>
+            <mat-form-field>
+              <input matInput name="phone" [(ngModel)]="client.phone" value="">
+            </mat-form-field>
 
-          <mat-form-field>
-            <input matInput name="last_name" [(ngModel)]="client.last_name" value="">
-          </mat-form-field>
+            <button type="button" mat-icon-button (click)="updateClient(client)" onClick="window.location.reload()" value="Update">
+              <mat-icon>update</mat-icon>
+            </button>
 
-          <mat-form-field>
-            <input matInput name="phone" [(ngModel)]="client.phone" value="">
-          </mat-form-field>
+            <button type="button" mat-icon-button (click)="deleteClient(client._id)" value="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
 
-          <button type="button" mat-icon-button (click)="updateClient(client)" onClick="window.location.reload()" value="Update">
-            <mat-icon>update</mat-icon>
-          </button>
-
-          <button type="button" mat-icon-button (click)="deleteClient(client._id)" value="Delete">
-            <mat-icon>delete</mat-icon>
-          </button>
-
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+<!-- <div *ngIf="user"> -->
