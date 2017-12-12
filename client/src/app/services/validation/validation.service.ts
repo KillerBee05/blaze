@@ -21,4 +21,14 @@ export class ValidationService {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     }
+
+  validateUser(user){
+    if(user.user_name == undefined  || user.password == undefined ){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
   }

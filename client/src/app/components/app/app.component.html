@@ -12,9 +12,9 @@
     </button>
   </span>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
+    <button mat-menu-item (click)="onLogoutClick()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
     </button>
     <button mat-menu-item disabled>
       <mat-icon>voicemail</mat-icon>
