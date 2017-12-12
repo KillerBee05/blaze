@@ -10,7 +10,6 @@ import {Router} from '@angular/router';
   providers: [RegisterService]
 })
 export class RegisterComponent implements OnInit {
-  users: User[];
   user: User;
   first_name: string;
   last_name: string;
@@ -35,8 +34,6 @@ export class RegisterComponent implements OnInit {
       .subscribe(user =>{
         if(user){
           this.router.navigate(['/login']);
-          this.users.push(user);
-
         }
         else{
           console.log("WE have an error");
