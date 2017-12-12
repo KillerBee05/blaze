@@ -28,6 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 // Services
 import { ClientService } from './services/client/client.service';
 import { RegisterService } from './services/register/register.service';
+import { ValidationService } from './services/validation/validation.service';
+import { AuthService } from './services/auth/auth.service';
 
 
 // Components
@@ -75,7 +77,9 @@ import { LoginComponent } from './components/login/login.component';
   // Add Services here
   providers: [
     ClientService,
-    RegisterService
+    RegisterService,
+    ValidationService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
