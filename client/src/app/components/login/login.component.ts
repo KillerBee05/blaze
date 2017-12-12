@@ -5,8 +5,7 @@ import {User} from '../../models/user/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [AuthService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   user_name:string;
