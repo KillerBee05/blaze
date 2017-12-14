@@ -1,13 +1,9 @@
 const express = require('express');
 const router = express.Router();
-// const passport = require('passport');
-// const jwt = require('jsonwebtoken');
 const Client = require('../models/client');
 
-//Retrieve data
-// passport.authenticate('jwt', {session:false}),
+// Retrieve data
 router.get('/client', (req, res, next) => {
-  // res.json({user: req.user});
   Client.find(function(err, client){
     res.json(client);
   });

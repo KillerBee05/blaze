@@ -71,7 +71,11 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 //Protected Route Needs passport.authenticate('jwt', {session:false})
-router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+router.get('/authLunch', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+  res.json({user: req.user});
+});
+
+router.get('/authClient', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   res.json({user: req.user});
 });
 

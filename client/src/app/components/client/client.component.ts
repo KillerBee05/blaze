@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from '../../services/client/client.service';
 import {Client} from '../../models/client/client';
-// import {AuthService} from '../../services/auth/auth.service';
+import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -20,14 +20,17 @@ export class ClientComponent implements OnInit {
 
   constructor(
     private clientService: ClientService,
-    // private authService: AuthService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    // this.authService.getClient()
-    //   .subscribe(clients =>
-    //     this.clients = clients);
+    this.authService.authClient().subscribe(client => {
+    this.user = client.user;
+    },
+    err => {
+      console.log(err);
+    });
 
     this.clientService.getClient()
       .subscribe(clients =>

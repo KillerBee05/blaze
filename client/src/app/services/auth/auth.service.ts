@@ -19,16 +19,26 @@ export class AuthService {
     return this.http.post('http://localhost:3000/api/authenticate', user,{headers:headers})
       .map(res => res.json());
   }
-  // 
-  // getClient(){
-  //   debugger;
-  //   let headers = new Headers();
-  //   this.loadToken();
-  //   headers.append('Authorization', this.authToken);
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.post('http://localhost:3000/api/client',{headers:headers})
-  //     .map(res => res.json());
-  // }
+
+// authenticate User Lunch Routes
+  authLunch(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:3000/api/authLunch',{headers:headers})
+      .map(res => res.json());
+  }
+
+// authenticate User Client Routes
+  authClient(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:3000/api/authClient',{headers:headers})
+      .map(res => res.json());
+  }
 
   loadToken(){
     const token = localStorage.getItem('id_token');
