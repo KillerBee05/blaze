@@ -4,10 +4,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlashMessagesModule  } from 'angular2-flash-messages';
+import { JwtModule } from '@auth0/angular-jwt'
 
 // Routing Modules
 import { AppRoutingModule } from './routes/app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+
+
 
 // Material Modules
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -74,13 +78,22 @@ import { LoginComponent } from './components/login/login.component';
     MatTableModule,
     MatDialogModule,
     FlashMessagesModule.forRoot(),
+    JwtModule.forRoot({
+     config: {
+       tokenGetter: () => {
+         return localStorage.getItem('id_token');
+       },
+       whitelistedDomains: ['http://localhost:3000']
+     }
+   })
   ],
   // Add Services here
   providers: [
     ClientService,
     RegisterService,
     ValidationService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

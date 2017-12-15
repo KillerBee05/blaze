@@ -3,14 +3,17 @@ import {Http, Headers} from '@angular/http';
 import {User} from '../../models/user/user';
 import 'rxjs/add/operator/map';
 import {Client} from '../../models/client/client';
-
+import { JwtHelperService } from '@auth0/angular-jwt'
 
 @Injectable()
 export class AuthService {
   authToken: any;
   user: any;
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private jwtHelperService: JwtHelperService
+  ) { }
 
   //Auth User
   authenticateUser(user){
@@ -50,6 +53,18 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  loggedIn(){
+    const token: string = this.jwtHelperService.tokenGetter()
+
+      if (!token) {
+        return false
+      }
+
+      const tokenExpired: boolean = this.jwtHelperService.isTokenExpired(token)
+
+      return !tokenExpired
   }
 
   logout(){
