@@ -11,9 +11,9 @@ import { LoginComponent } from '../components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'lunch', component: LunchComponent },
+  { path: 'lunch', component: LunchComponent, canActivate:[AuthGuard] },
   { path: 'client', component: ClientComponent, canActivate:[AuthGuard] },
-  { path: 'user', component: UserComponent },
+  { path: 'user', component: UserComponent, canActivate:[AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }
 ];
