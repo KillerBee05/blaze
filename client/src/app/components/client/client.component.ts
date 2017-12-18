@@ -18,6 +18,8 @@ export class ClientComponent implements OnInit {
 
   user:Object;
 
+  toggleInfo: any = [];
+
   constructor(
     private clientService: ClientService,
     private authService: AuthService,
@@ -35,6 +37,10 @@ export class ClientComponent implements OnInit {
     this.clientService.getClient()
       .subscribe(clients =>
       this.clients = clients);
+  }
+
+  showInfo(client){
+    this.toggleInfo[client._id] = !this.toggleInfo[client._id];
   }
 
   grabClient(client){
