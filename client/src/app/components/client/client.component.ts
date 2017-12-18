@@ -59,31 +59,6 @@ export class ClientComponent implements OnInit {
     this.router.navigate(['/add-client']);
   }
 
-  addClient(){
-    const newClient ={
-      first_name: this.first_name,
-      last_name: this.last_name,
-      phone: this.phone
-    }
-    this.clientService.addClient(newClient)
-      .subscribe(client =>{
-        this.clients.push(client);
-      });
-  }
-
-  // updateClient(client){
-  //   const updateClient: Client ={
-  //     _id: client._id,
-  //     first_name: client.first_name,
-  //     last_name: client.last_name,
-  //     phone: client.phone
-  //   }
-  //   this.clientService.updateClient(updateClient)
-  //   .subscribe(result =>{
-  //     this.clientService.getClient();
-  //   });
-  // }
-
   deleteClient(id:any){
     var clients = this.clients;
     this.clientService.deleteClient(id)
