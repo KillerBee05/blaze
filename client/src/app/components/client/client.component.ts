@@ -55,6 +55,10 @@ export class ClientComponent implements OnInit {
     this.router.navigate(['/edit-client'], navigationExtras);
   }
 
+  newClient(){
+    this.router.navigate(['/add-client']);
+  }
+
   addClient(){
     const newClient ={
       first_name: this.first_name,
@@ -67,18 +71,18 @@ export class ClientComponent implements OnInit {
       });
   }
 
-  updateClient(client){
-    const updateClient: Client ={
-      _id: client._id,
-      first_name: client.first_name,
-      last_name: client.last_name,
-      phone: client.phone
-    }
-    this.clientService.updateClient(updateClient)
-    .subscribe(result =>{
-      this.clientService.getClient();
-    });
-  }
+  // updateClient(client){
+  //   const updateClient: Client ={
+  //     _id: client._id,
+  //     first_name: client.first_name,
+  //     last_name: client.last_name,
+  //     phone: client.phone
+  //   }
+  //   this.clientService.updateClient(updateClient)
+  //   .subscribe(result =>{
+  //     this.clientService.getClient();
+  //   });
+  // }
 
   deleteClient(id:any){
     var clients = this.clients;

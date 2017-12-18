@@ -45,6 +45,7 @@ import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
+import { AddClientComponent } from './components/add-client/add-client.component';
 
 @NgModule({
   // Put components here!
@@ -55,7 +56,8 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
     UserComponent,
     RegisterComponent,
     LoginComponent,
-    EditClientComponent
+    EditClientComponent,
+    AddClientComponent
   ],
   // Module Imports here
   imports: [

@@ -26,3 +26,8 @@ margin-left: 10px;
 .card-buttons{
   float: right;
 }
+
+.addClient{
+  float:right;
+  margin-right: 5%;
+}

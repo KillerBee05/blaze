@@ -9,6 +9,7 @@ import { UserComponent } from '../components/user/user.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { LoginComponent } from '../components/login/login.component';
 import { EditClientComponent } from '../components/edit-client/edit-client.component';
+import { AddClientComponent } from '../components/add-client/add-client.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent, canActivate:[AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'edit-client', component: EditClientComponent }
+  { path: 'edit-client', component: EditClientComponent },
+  { path: 'add-client', component: AddClientComponent }
 ];
 
 @NgModule({
