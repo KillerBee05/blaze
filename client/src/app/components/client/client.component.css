@@ -14,20 +14,17 @@ margin-left: 10px;
   width: 100%;
 }
 
-.example-card {
-  width: 400px;
-}
-
 .card-header{
   font-size: 25px;
   font-weight: bold;
 }
 
-.card-buttons{
-  float: right;
-}
-
 .addClient{
   float:right;
   margin-right: 5%;
+}
+
+.card{
+  margin-left: auto;
+  margin-right: auto;
 }
