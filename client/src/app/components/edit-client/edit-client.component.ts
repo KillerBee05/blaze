@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ClientService} from '../../services/client/client.service';
 import {Client} from '../../models/client/client';
 import {AuthService} from '../../services/auth/auth.service';
+import {ActivatedRoute} from '@angular/router';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,53 +10,41 @@ import {Router} from '@angular/router';
   templateUrl: './edit-client.component.html',
   styleUrls: ['./edit-client.component.css']
 })
+
 export class EditClientComponent implements OnInit {
-  client: Client;
+  clientId: string;
   first_name: string;
   last_name: string;
   phone: string;
 
-  user:Object;
-
-  @Input() public state:string;
   constructor(
     private clientService: ClientService,
     private authService: AuthService,
-    private router: Router
+    private router: ActivatedRoute,
+    private route: Router
   ) { }
 
   ngOnInit() {
-    debugger;
-     this.client = this.clientService.grabClient(client);
-    // this.authService.authClient().subscribe(client => {
-    // this.user = client.user;
-    // },
-    // err => {
-    //   console.log(err);
-    // });
-
-    // this.clientService.grabClient()
-    //   .subscribe(client =>
-    //   this.client = client);
-
+    this.router.queryParams.subscribe(params =>{
+      this.clientId = params['clientId'];
+      this.first_name = params['first_name'];
+      this.last_name = params['last_name'];
+      this.phone = params['phone'];
+    });
   }
 
-  updateClient(client){
+  updateClient(params){
     const updateClient: Client ={
-      _id: client._id,
-      first_name: client.first_name,
-      last_name: client.last_name,
-      phone: client.phone
+      _id: this.clientId,
+      first_name: this.first_name,
+      last_name: this.last_name,
+      phone: this.phone
     }
     this.clientService.updateClient(updateClient)
     .subscribe(result =>{
       this.clientService.getClient();
     });
-  }
-
-  deleteClient(id:any){
-    var client = this.client;
-    this.clientService.deleteClient(id)
+      this.route.navigate(['/client']);
   }
 
 }

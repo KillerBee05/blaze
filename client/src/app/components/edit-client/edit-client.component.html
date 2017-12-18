@@ -1,14 +1,18 @@
 <div>
-<h1>Lunch Menu</h1>
-<!-- <form class="example-form" class="flex-container"  >
-  <mat-form-field class="example-full-width" >
-    <input matInput placeholder="First Name" name="first_name" [(ngModel)]="client.first_name" value="">
-  </mat-form-field>
-   <div  fxFlex="5%" >  </div>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="">
-  </mat-form-field>
-</form> -->
+  <h1>Edit Client</h1>
+<mat-form-field>
+  <input matInput name="first_name" [(ngModel)]="this.first_name" value="">
+</mat-form-field>
 
-<h1> Sour DEE {{state}}</h1>
+<mat-form-field>
+  <input matInput placeholder="First Name" name="last_name" [(ngModel)]="this.last_name" value="">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput name="phone" [(ngModel)]="this.phone" value="">
+</mat-form-field>
+
+<button type="button" mat-icon-button (click)="updateClient(client)" onClick="window.location.reload()" value="Update">
+  <mat-icon>update</mat-icon>
+</button>
 </div>

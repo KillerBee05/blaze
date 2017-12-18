@@ -7,11 +7,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ClientService {
 
-  public client: Client;
-
   constructor(private http: Http) { }
-  // retrieving ClientService
 
+  // retrieving ClientService
   getClient(){
     return this.http.get('http://localhost:3000/api/client')
     .map(res => res.json());

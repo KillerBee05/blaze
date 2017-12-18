@@ -1,8 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {ClientService} from '../../services/client/client.service';
 import {Client} from '../../models/client/client';
 import {AuthService} from '../../services/auth/auth.service';
-import {ActivatedRoute} from '@angular/router';
+import {Router, NavigationExtras} from '@angular/router';
 
 @Component({
   selector: 'client',
@@ -11,19 +11,17 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ClientComponent implements OnInit {
   clients: Client[];
-  public client: Client;
+  client: Client;
   first_name: string;
   last_name: string;
   phone: string;
 
   user:Object;
 
-
-
   constructor(
     private clientService: ClientService,
     private authService: AuthService,
-    private router: ActivatedRoute
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -40,18 +38,15 @@ export class ClientComponent implements OnInit {
   }
 
   grabClient(client){
-    debugger;
-    // const getClient: Client ={
-    //   _id: client._id,
-    //   first_name: client.first_name,
-    //   last_name: client.last_name,
-    //   phone: client.phone
-    // }
-    // this.clientService.grabClient(client)
-    //   .subscribe(client =>
-    //   this.client = client);
-    this.router.navigate(['/edit-client']);
-
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        clientId: client._id,
+        first_name: client.first_name,
+        last_name: client.last_name,
+        phone: client.phone
+      }
+    };
+    this.router.navigate(['/edit-client'], navigationExtras);
   }
 
   addClient(){
@@ -93,9 +88,4 @@ export class ClientComponent implements OnInit {
       });
   }
 
-
-  ngOnDestroy() {
-    debugger;
-     this.clientService.client = this.client;
-  }
 }
