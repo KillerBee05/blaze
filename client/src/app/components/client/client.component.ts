@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {ClientService} from '../../services/client/client.service';
 import {Client} from '../../models/client/client';
 import {AuthService} from '../../services/auth/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'client',
@@ -11,17 +11,19 @@ import {Router} from '@angular/router';
 })
 export class ClientComponent implements OnInit {
   clients: Client[];
-  client: Client;
+  public client: Client;
   first_name: string;
   last_name: string;
   phone: string;
 
   user:Object;
 
+
+
   constructor(
     private clientService: ClientService,
     private authService: AuthService,
-    private router: Router
+    private router: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,21 @@ export class ClientComponent implements OnInit {
     this.clientService.getClient()
       .subscribe(clients =>
       this.clients = clients);
+  }
+
+  grabClient(client){
+    debugger;
+    // const getClient: Client ={
+    //   _id: client._id,
+    //   first_name: client.first_name,
+    //   last_name: client.last_name,
+    //   phone: client.phone
+    // }
+    // this.clientService.grabClient(client)
+    //   .subscribe(client =>
+    //   this.client = client);
+    this.router.navigate(['/edit-client']);
+
   }
 
   addClient(){
@@ -77,5 +94,8 @@ export class ClientComponent implements OnInit {
   }
 
 
-
+  ngOnDestroy() {
+    debugger;
+     this.clientService.client = this.client;
+  }
 }

@@ -1,5 +1,5 @@
 <div *ngIf="user">
-  <h1>Client Information</h1>
+  <h1>Client </h1>
   <h2> Add Client </h2>
   <div class ="container">
   <form (submit)="addClient()" class="example-form" class="flex-container">
@@ -58,4 +58,25 @@
       </div>
     </div>
   </div>
+<div class ="container">
+  <div *ngFor = "let client of clients">
+
+    <mat-card>
+      <mat-card-header class="card-header">{{client.first_name}} {{client.last_name}}</mat-card-header>
+      <mat-card-content>
+        <p>
+          {{client.first_name}} {{client.phone}}
+        </p>
+      </mat-card-content>
+      <span>
+      <mat-card-actions class="">
+        <button mat-button class="card-buttons" (click)="grabClient(client)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </span>
+    </mat-card>
+  </div>
+</div>
+
 </div>

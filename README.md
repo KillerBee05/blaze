@@ -26,3 +26,6 @@ Run Mongo - c:\Program Files\MongoDB\Server\3.4\bin>mongod
 Run Server - cd server npm start
 
 Run Client - cd client npm start
+
+app build -- angular-cli.json - Change outDir: from "dist" to outDir: "../server/public"
+run ng build in the cmd console.

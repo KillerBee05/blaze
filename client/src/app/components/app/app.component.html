@@ -1,33 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-sidenav-container class="example-container" fullscreen>
 <mat-toolbar color="primary">
-  <button type="button" mat-icon-button (click)="sidenav.open()">
+  <button type="button" mat-icon-button (click)="sidenav.open()" *ngIf="authService.loggedIn()">
     <mat-icon>menu</mat-icon>
   </button>
   <span> Demo </span>
-  <span class="drop-down-menu"></span>
+  <span class="logout"></span>
   <span>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
+    <button mat-icon-button *ngIf="authService.loggedIn()" >
+    <mat-icon (click)="onLogoutClick()">power_settings_new</mat-icon>
     </button>
   </span>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="onLogoutClick()">
-      <mat-icon>logout</mat-icon>
-      <span>Logout</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voicemail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
-  </mat-menu>
 </mat-toolbar>
 
-  <mat-sidenav #sidenav >
+  <mat-sidenav #sidenav>
     <h3 mat-subheader>Blaze</h3>
     <mat-list>
       <mat-list-item  *ngIf="authService.loggedIn()"><mat-icon>event</mat-icon><a routerLink="/lunch" mat-button> Lunch </a></mat-list-item>

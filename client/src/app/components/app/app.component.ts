@@ -19,6 +19,7 @@ export class AppComponent{
     private flashMessage: FlashMessagesService
   ) { }
 
+
   onLogoutClick(){
     this.authService.logout();
     this.flashMessage.show('You have logged out!', { cssClass: 'alert-success', timeout: 5000});

@@ -7,6 +7,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ClientService {
 
+  public client: Client;
+
   constructor(private http: Http) { }
   // retrieving ClientService
 
@@ -37,4 +39,12 @@ export class ClientService {
       .map(res => res.json());
   }
 
+  //selected client
+  grabClient(client){
+  debugger;
+  var headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:3000/api/client/'+client._id, {headers:headers})
+      .map(res => res.json());
+  }
 }

@@ -13,3 +13,16 @@ margin-left: 10px;
 .example-container {
   width: 100%;
 }
+
+.example-card {
+  width: 400px;
+}
+
+.card-header{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.card-buttons{
+  float: right;
+}

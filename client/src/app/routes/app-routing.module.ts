@@ -8,6 +8,7 @@ import { ClientComponent } from '../components/client/client.component';
 import { UserComponent } from '../components/user/user.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { LoginComponent } from '../components/login/login.component';
+import { EditClientComponent } from '../components/edit-client/edit-client.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'client', component: ClientComponent, canActivate:[AuthGuard] },
   { path: 'user', component: UserComponent, canActivate:[AuthGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'edit-client', component: EditClientComponent }
 ];
 
 @NgModule({
