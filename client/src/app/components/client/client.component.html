@@ -1,5 +1,5 @@
 <div *ngIf="user">
-  <button mat-raised-button class="addClient" (click)="newClient()">Add Client</button>
+  <!-- <button mat-raised-button class="addClient" (click)="newClient()">Add Client</button> -->
   <h2> Client Records </h2>
   <div class="container card">
     <div *ngFor = "let client of clients">
@@ -20,4 +20,8 @@
       </mat-card>
     </div>
   </div>
+  <button mat-fab color="primary" class="button" (click)="newClient()">
+    <mat-icon class="icon">add</mat-icon>
+  </button>
+
 </div>

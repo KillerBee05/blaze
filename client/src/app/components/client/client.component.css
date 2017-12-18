@@ -24,6 +24,20 @@ margin-left: 10px;
   margin-right: 5%;
 }
 
+.button{
+  float:right;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.icon{
+     margin-top: auto;
+     margin-bottom: auto;
+     margin-right: auto;
+     margin-left: auto;
+}
+
+
 .card{
   margin-left: auto;
   margin-right: auto;

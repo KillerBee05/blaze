@@ -29,6 +29,7 @@ import {MatGridListModule} from '@angular/material';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatStepperModule} from '@angular/material/stepper';
 
 // Services
 import { ClientService } from './services/client/client.service';
@@ -81,6 +82,7 @@ import { AddClientComponent } from './components/add-client/add-client.component
     HttpModule,
     MatTableModule,
     MatDialogModule,
+    MatStepperModule,
     FlashMessagesModule.forRoot(),
     JwtModule.forRoot({
      config: {
