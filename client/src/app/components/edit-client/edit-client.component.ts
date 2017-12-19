@@ -4,6 +4,7 @@ import {Client} from '../../models/client/client';
 import {AuthService} from '../../services/auth/auth.service';
 import {ActivatedRoute} from '@angular/router';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'edit-client',
@@ -21,7 +22,8 @@ export class EditClientComponent implements OnInit {
     private clientService: ClientService,
     private authService: AuthService,
     private router: ActivatedRoute,
-    private route: Router
+    private route: Router,
+    private _location: Location
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,10 @@ export class EditClientComponent implements OnInit {
       this.last_name = params['last_name'];
       this.phone = params['phone'];
     });
+  }
+
+  goBack(){
+    this._location.back();
   }
 
   updateClient(params){
@@ -47,4 +53,18 @@ export class EditClientComponent implements OnInit {
       this.route.navigate(['/client']);
   }
 
+  deleteClient(){
+    var client = this.clientId;
+    this.clientService.deleteClient(client)
+      .subscribe(data =>{
+        if(data.n==1){
+          for(var i = 0; i < client.length; i++){
+            if(client._id == client){
+              client.splice(i,1);
+            }
+          }
+        }
+      });
+      this.route.navigate(['/client']);
+  }
 }

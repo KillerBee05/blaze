@@ -23,4 +23,10 @@
       </form>
     </mat-card>
   </div>
+  <button mat-fab color="primary" class="back" (click)="goBack()">
+    <mat-icon class="icon">arrow_back</mat-icon>
+  </button>
+  <button mat-fab color="warn" class="button" (click)="deleteClient(client)" onClick="window.location.reload()">
+    <mat-icon class="icon">delete</mat-icon>
+  </button>
 </div>
