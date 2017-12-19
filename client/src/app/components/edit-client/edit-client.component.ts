@@ -57,13 +57,7 @@ export class EditClientComponent implements OnInit {
     var client = this.clientId;
     this.clientService.deleteClient(client)
       .subscribe(data =>{
-        if(data.n==1){
-          for(var i = 0; i < client.length; i++){
-            if(client._id == client){
-              client.splice(i,1);
-            }
-          }
-        }
+        return;
       });
       this.route.navigate(['/client']);
   }
