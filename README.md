@@ -18,12 +18,12 @@ Browse - Put project where you want
 Clone repo Url - https://github.com/KillerBee05/blaze
 
 Find project directory thru command line
-	- cd server run nodemon
+	- cd server run npm install
 	- cd client run npm install
 
 Run Mongo - c:\Program Files\MongoDB\Server\3.4\bin>mongod
 
-Run Server - cd server npm start
+Run Server - cd server nodemon
 
 Run Client - cd client npm start
 
